@@ -14,8 +14,6 @@ class SeatableSettings:
             self.token = token
         self.base_registration = None
         self.LLMRequest_SuggestTables = self.RequestSettings()
-        self.LLMRequest_OptimizedTableList = self.RequestSettings()
-        self.LLMRequest_GetResult = self.RequestSettings()
         self.urlProxy = None
 
         self.base_register()
@@ -38,6 +36,7 @@ class SeatableSettings:
     class RequestSettings:
         def __init__(self):
             self.SystemPrompt = None
+            self.UserPrompt = None
             self.Temperature = None
 
 
@@ -49,11 +48,7 @@ class SeatableSettings:
                 variables = {
                     'LLMRequest_SuggestTables_SystemPrompt': None,
                     'LLMRequest_SuggestTables_Temperature': None,
-                    'LLMRequest_OptimizedTablesList_SystemPrompt': None,
-                    'LLMRequest_OptimizedTablesList_Temperature': None,
-                    'LLMRequest_GetResult_SystemPrompt': None,
-                    'LLMRequest_GetResult_Temperature': None,
-                    'HFModel_TopK': None,
+                    'LLMRequest_SuggestTables_UserPrompt': None,
                     'urlProxy': None
                 }
 
@@ -69,11 +64,7 @@ class SeatableSettings:
 
                 self.LLMRequest_SuggestTables.SystemPrompt = variables['LLMRequest_SuggestTables_SystemPrompt']
                 self.LLMRequest_SuggestTables.Temperature = float(variables['LLMRequest_SuggestTables_Temperature'])
-                self.LLMRequest_OptimizedTableList.SystemPrompt = variables['LLMRequest_OptimizedTablesList_SystemPrompt']
-                self.LLMRequest_OptimizedTableList.Temperature = float(
-                    variables['LLMRequest_OptimizedTablesList_Temperature'])
-                self.LLMRequest_GetResult.SystemPrompt =( variables['LLMRequest_GetResult_SystemPrompt'])
-                self.LLMRequest_GetResult.Temperature = float(variables['LLMRequest_GetResult_Temperature'])
+                self.LLMRequest_SuggestTables.UserPrompt = variables['LLMRequest_SuggestTables_UserPrompt']
                 if variables['urlProxy'] is not None:
                     self.urlProxy = variables['urlProxy'].split('(')[0].strip("[]")
                 else:
