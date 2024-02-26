@@ -5,7 +5,7 @@ import httpx
 from keys import openai_key, seatable_api_prompts
 
 
-proxy_url = "socks5://XkugDq:BcYCWw@95.164.202.188:9775"
+
 proxies = {
     "http://": proxy_url,
     "https://": proxy_url,
