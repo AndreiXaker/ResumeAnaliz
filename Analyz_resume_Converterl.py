@@ -22,9 +22,12 @@ class FileConverterPdfDocx:
     @staticmethod
     def convert_docx_to_text(file_doc):
         FileConverterPdfDocx().determine_format(file_doc)
-        path = FileConverterPdfDocx().convert_doc_to_docx(file_doc)
-        text = docx2txt.process(path)
-        os.remove(path)
+        with open('temp.docx', 'wb') as f:
+            f.write(file_doc.getbuffer())
+            
+        filename = FileConverterPdfDocx().convert_doc_to_docx()
+        text = docx2txt.process('temp.docx')
+        os.remove('temp.docx')
         return text
     
     @staticmethod
@@ -47,14 +50,13 @@ class FileConverterPdfDocx:
         return text
 
     @staticmethod
-    def convert_doc_to_docx(file_doc):
+    def convert_doc_to_docx():
         c = ct.Dispatch('Word.Application')
-        path = os.path.abspath(file_doc)
+        path = os.path.abspath('temp.docx')
         docx = c.Documents.Open(path)
         docx.SaveAs(path, 16)
         docx.Close()
         c.Quit()
-        return path
 
 
 class GgtConverter:
