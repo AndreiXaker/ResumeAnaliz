@@ -1,3 +1,4 @@
+from win32com import client as ct
 import docx2txt
 import json
 import PyPDF2
@@ -12,20 +13,18 @@ class FileConverterPdfDocx:
     @classmethod
     def determine_format(cls, file):
         if file.endswith('.doc'):
-            return file, "doc"
+            return file
         elif file.endswith('.pdf'):
-            return file, "pdf"
+            return file
 
         raise FormatFileError("Invalid file format. Valid: pdf, doc")
 
     @staticmethod
-    def convert_docx_to_text(file_docx):
-        FileConverterPdfDocx().determine_format(file_docx)
-        with open("temp.docx", "wb") as f:
-            f.write(docx2txt.process(file_docx))
-
-        text = docx2txt.process('temp.docx')
-        os.remove('temp.docx')
+    def convert_docx_to_text(file_doc):
+        FileConverterPdfDocx().determine_format(file_doc)
+        path = FileConverterPdfDocx().convert_doc_to_docx(file_doc)
+        text = docx2txt.process(path)
+        os.remove(path)
         return text
     
     @staticmethod
@@ -43,9 +42,19 @@ class FileConverterPdfDocx:
                 text += page.extract_text()
 
         # Remove the temporary file
-        os.remove("temp.pdf")
+        os.remove('temp.pdf')
 
         return text
+
+    @staticmethod
+    def convert_doc_to_docx(file_doc):
+        c = ct.Dispatch('Word.Application')
+        path = os.path.abspath(file_doc)
+        docx = c.Documents.Open(path)
+        docx.SaveAs(path, 16)
+        docx.Close()
+        c.Quit()
+        return path
 
 
 class GgtConverter:
