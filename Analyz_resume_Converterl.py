@@ -106,6 +106,43 @@ def find_elements_in_square_brackets(text):
         start_index = end_index + 1
     return elements
 
+class JsonVacancyParser:
+    def __init__(self, json_file_path):
+        self.json_file_path = json_file_path
+        self.vacancy_data = self.load_json()
+
+
+    def load_json(self):
+        with open(self.json_file_path, 'r', encoding='utf-8') as file:
+            return json.load(file)
+
+    def get_vacancy_data_as_string(self):
+        path_vacansy = self.vacancy_data.get('vacancy')
+        description = path_vacansy.get('description')
+
+
+        result = f"{description}\n"
+        return result
+
+    def parse_resume_data(self):
+        try:
+            resumes = self.vacancy_data.get("resumes", [])
+            if not resumes:
+                raise ValueError("В JSON нет данных о резюме")
+
+            parsed_resumes = []
+            for resume in resumes:
+                parsed_resume = {
+                    "uuid": resume.get("uuid", ""),
+                    "key_skills": resume.get("key_skills", ""),
+                    "experienceItem": resume.get('experienceItem')
+                }
+                parsed_resumes.append(parsed_resume)
+
+            return parsed_resumes[:10]
+        except Exception as e:
+            return str(e)
+
 ##Пример использования класса
 # p = GgtConverter('docs/test_candidat.json')
 # #print(p.file_handler())
