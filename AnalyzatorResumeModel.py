@@ -1,15 +1,14 @@
 from api_seatable import SeatableSettings
-from Analyz_resume_Converterl import GgtConverter,FileConverterPdfDocx
 from openai import OpenAI
 import httpx
-from keys import openai_key, seatable_api_prompts
+from keys import openai_key, seatable_api_prompts, proxyurl
+from Analyz_resume_Converterl import JsonVacancyParser
 
 
 
-proxy_url = "socks5://XkugDq:BcYCWw@95.164.202.188:9775"
 proxies = {
-    "http://": proxy_url,
-    "https://": proxy_url,
+    "http://": proxyurl,
+    "https://": proxyurl,
 }
 
 seatable_settings = SeatableSettings("https://cloud.seatable.io", seatable_api_prompts)
@@ -30,7 +29,6 @@ class LLMRequest_GetResult_base:
         self.UserPrompt = seasettings.LLMRequest_SuggestTables.UserPrompt
         self.Temperature = seasettings.LLMRequest_SuggestTables.Temperature
         self.GPTmodel = "gpt-4-0125-preview"
-        self.AnazylateResume_candidate_job_summmary = FileConverterPdfDocx()
         self.json_file = JsonVacancyParser(json_file)
 
     def query(self):
