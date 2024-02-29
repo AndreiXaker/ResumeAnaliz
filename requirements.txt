@@ -1,5 +1,4 @@
 streamlit
 openai
 seateble_api
-PyPDF2
 httpx[socks]
