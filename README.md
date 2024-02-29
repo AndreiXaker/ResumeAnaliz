@@ -7,8 +7,15 @@ git clone https://github.com/AndreiXaker/ResumeAnaliz.git
 
 2) Откройте папку:
    cd ResumeAnaliz
-3) Установите необходимые библиотеки:
+   
+4) Установите необходимые библиотеки:
    pip install -r requirements.txt
 
-4) Запустите файл:
-python main.py
+5) Запустите файл:
+   python main.py
+
+![alt text](screenshot.png)
+
+6) Выберите файл для загрузки требований к вакансии и кандидатов JSON формата
+
+7) Нажмите Process Files
