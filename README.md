@@ -7,15 +7,21 @@ git clone https://github.com/AndreiXaker/ResumeAnaliz.git
 
 2) Откройте папку:
    cd ResumeAnaliz
+
+3) Cоздайте виртуальное окружение: 
+   python -m venv venv
+
+4) Активируйте виртуальное окружение:
+   .\venv\Scripts\activate
    
-4) Установите необходимые библиотеки:
+5) Установите необходимые библиотеки:
    pip install -r requirements.txt
 
-5) Запустите файл:
+6) Запустите файл:
    python main.py
 
 ![alt text](screenshot.png)
 
-6) Выберите файл для загрузки требований к вакансии и кандидатов JSON формата
+7) Выберите файл для загрузки требований к вакансии и кандидатов JSON формата
 
-7) Нажмите Process Files
+8) Нажмите Process Files
