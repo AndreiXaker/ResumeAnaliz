@@ -3,7 +3,7 @@ from openai import OpenAI
 from api_seatable import SeatableSettings
 import httpx
 from keys import openai_key, seatable_api_prompts, proxyurl
-from test import LLMRequest_GetResult_base
+from AnalyzatorResumeModel import LLMRequest_GetResult_base
 
 proxies = {
     "http://": proxyurl,
