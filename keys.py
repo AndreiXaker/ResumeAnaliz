@@ -1,6 +1,7 @@
-from seatable_api import Base,context
+from seatable_api import context
 
-openai_key="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"
-seatable_api_token_database ='610459a58d6702513c991dcb2692edbe252c0b12'
+
+openai_key="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"
+
+proxyurl = "socks5://XkugDq:BcYCWw@95.164.202.188:9775"
 seatable_api_prompts = context.api_token or '610459a58d6702513c991dcb2692edbe252c0b12'
-proxy_url = "socks5://wf89Hd:JorNo7@94.131.22.199:9634"
