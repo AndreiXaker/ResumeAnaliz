@@ -1,3 +1,27 @@
+from api_seatable import SeatableSettings
+from Analyz_resume_Converterl import GgtConverter,FileConverterPdfDocx, read_pdf
+from openai import OpenAI
+import httpx
+from keys import openai_key, seatable_api_prompts
+
+
+
+proxy_url = "socks5://XkugDq:BcYCWw@95.164.202.188:9775"
+proxies = {
+    "http://": proxy_url,
+    "https://": proxy_url,
+}
+
+seatable_settings = SeatableSettings("https://cloud.seatable.io", seatable_api_prompts)
+openai_client = OpenAI(http_client=httpx.Client(proxies=proxies), api_key=(openai_key))
+
+
+
+def get_seasettings():
+    sea_settings = SeatableSettings()
+    return sea_settings
+
+
 class LLMRequest_GetResult_base:
     """Базовый класс для запросов GetResult в OpenAI"""
     def __init__(self, openaiclient, seasettings, json_file):
