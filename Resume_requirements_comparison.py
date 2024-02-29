@@ -3,7 +3,6 @@ from openai import OpenAI
 from api_seatable import SeatableSettings
 import httpx
 from keys import openai_key, seatable_api_prompts, proxyurl
-import PyPDF2
 from test import LLMRequest_GetResult_base
 
 proxies = {
@@ -38,7 +37,7 @@ st.markdown(
     """
     <div style='text-align: center; padding: 20px;'>
         <h1>Добро пожаловать на страницу сравнения резюме!</h1>
-        <p>Здесь вы можете загрузить два резюме кандидатов и получить их сопоставление по ключевым критериям.</p>
+        <p>Здесь вы можете загрузить файл с  резюме кандидатов и получить их сопоставление по ключевым критериям с описанием вакансии.</p>
         <p>Используйте наш инструмент для более эффективного отбора кандидатов на вашу вакансию.</p>
     </div>
     """,
