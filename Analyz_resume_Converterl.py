@@ -1,5 +1,3 @@
-from win32com import client as ct
-import docx2txt
 import json
 import PyPDF2
 import os
