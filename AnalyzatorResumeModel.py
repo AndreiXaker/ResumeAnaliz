@@ -1,5 +1,5 @@
 from api_seatable import SeatableSettings
-from Analyz_resume_Converterl import GgtConverter,FileConverterPdfDocx, read_pdf
+from Analyz_resume_Converterl import GgtConverter,FileConverterPdfDocx
 from openai import OpenAI
 import httpx
 from keys import openai_key, seatable_api_prompts
