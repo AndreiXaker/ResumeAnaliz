@@ -39,7 +39,7 @@ class LLMRequest_GetResult_base:
         results = []
 
         # Отправьте запросы для каждой части данных
-        for chunk_resume_data in parsed_resume_data_chunks[0]:
+        for chunk_resume_data in parsed_resume_data_chunks:
             # Создайте сообщение запроса
             message = {
                 "role": "user",
