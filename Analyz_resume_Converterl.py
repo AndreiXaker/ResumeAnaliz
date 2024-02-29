@@ -1,6 +1,5 @@
 import json
-import PyPDF2
-import os
+
 
 class JsonVacancyParser:
     def __init__(self, json_file):
