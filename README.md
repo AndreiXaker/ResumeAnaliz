@@ -25,3 +25,5 @@ git clone https://github.com/AndreiXaker/ResumeAnaliz.git
 7) Выберите файл для загрузки требований к вакансии и кандидатов JSON формата
 
 8) Нажмите Process Files
+
+JSON файл должен быть такого формата: github.com/AndreiXaker/ResumeAnaliz/edit/main/docs/test_candidat.json
